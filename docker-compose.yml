@@ -1,12 +1,12 @@
 services:
   postgres:
-    image: "postgres"
+    image: postgres:18
     environment:
       - POSTGRES_USER=root
       - POSTGRES_PASSWORD=root
       - POSTGRES_DB=root
     volumes:
-      - ./postgres-data:/var/lib/postgresql/data
+      - ./postgres-data:/var/lib/postgresql
 
   app:
     image: golang:1.22
@@ -21,4 +21,3 @@ services:
       - 8080:8080
     depends_on:
       - postgres
-      
